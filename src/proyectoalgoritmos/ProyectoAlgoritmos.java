@@ -7,11 +7,9 @@ Codigo Hecho Por:
 Víctor Hugo García Orellana
 1890-26-10752
 
-Esta apunto de presenciar un codigo que ni yo mismo se como lo hice, pero aqui esta de alguna forma
-Nota para cuando vuelva abrir el programa, porfavor buscar en youtube como decorar la terminal o el sout
-para que no se vea tan simple y feo.
-    
-PD: borrar comentarios, si los estan leyendo es porque se me olvido AJJAJA
+Esta apunto de presenciar un codigo que ni yo mismo se como lo hice. 
+Pero aqui esta de alguna forma.
+
  */ 
 
     public static void main(String[] args) {
@@ -153,9 +151,7 @@ PD: borrar comentarios, si los estan leyendo es porque se me olvido AJJAJA
                         subtotalVenta = subtotalVenta + subtotalProducto;
                         //El total de los productos que vendemos
                         productosVentaActual = productosVentaActual + cantidadProducto;
-                        //El resultado
-                        System.out.printf("Subtotal: Q%.2f%n", subtotalVenta);
-                                                                    }              
+                                                                                                                  }              
                     //aqui se calculan los descuentos
                     System.out.println("************************************");
                     System.out.println("CALCULO DE VENTA");
@@ -176,6 +172,14 @@ PD: borrar comentarios, si los estan leyendo es porque se me olvido AJJAJA
                     montoConDescuento = subtotalVenta - descuento;
                     iva = montoConDescuento * 0.12;
                     totalVenta = montoConDescuento + iva;
+                    
+                      // mostramos el total antes de solicitar el pago
+                    System.out.printf("Subtotal: Q%.2f%n", subtotalVenta);
+                    System.out.printf("Descuento: Q%.2f%n", descuento);
+                    System.out.printf("Monto con descuento: Q%.2f%n", montoConDescuento);
+                    System.out.printf("IVA : Q%.2f%n", iva);
+                    System.out.printf("TOTAL A PAGAR: Q%.2f%n", totalVenta);
+                    
                     //procesos de forma de pago
                     do {
                         System.out.println("************************************");
@@ -206,7 +210,7 @@ PD: borrar comentarios, si los estan leyendo es porque se me olvido AJJAJA
                                 //aqui miramos si el dinero que nos dio fue suficiente para pagar la compra o no
                                 System.out.println("************************************");
                                 System.out.println("El efectivo no es suficiente");
-                                System.out.println("(\"Ingrese nuevamente la cantidad de efectivo: Q\");");
+                                System.out.print("Ingrese nuevamente la cantidad de efectivo: Q");
                                 efectivoRecibido = teclado.nextDouble();
                                                                   }
                             cambio = efectivoRecibido - totalVenta;
@@ -314,27 +318,28 @@ PD: borrar comentarios, si los estan leyendo es porque se me olvido AJJAJA
                 //salir del programa
                 case 4:
                     do {
-                        System.out.println("\n Seguro que quiere salir?"); 
+                        System.out.println("Seguro que quiere salir?");
                         System.out.println("1. Si");
-                        System.out.println("2. No");
+                        System.out.println("0. No");
                         System.out.print("Seleccione una opcion: ");
                         confirmarSalida = teclado.nextInt();
-                        if (confirmarSalida < 1 || confirmarSalida > 2) {
+
+                        if (confirmarSalida < 0 || confirmarSalida > 1) {
                             System.out.println("Opcion no valida.");
-                                                                        }
-                        } 
-                    while (confirmarSalida < 1 || confirmarSalida > 2);
-                    
+                        }
+
+                    } while (confirmarSalida < 0 || confirmarSalida > 1);
+
                     if (confirmarSalida == 1) {
                         salir = true;
                         System.out.println("Gracias por utilizar el sistema.");
-                    } 
-                    else{
+                    }
+                    else {
+                        System.out.println("Regresando al menu...");
+                    }
 
-                        System.out.println("Regresando al menu");       
-                        }
                     break;
-            }
+                         }
 
         } while (!salir);
         teclado.close();
